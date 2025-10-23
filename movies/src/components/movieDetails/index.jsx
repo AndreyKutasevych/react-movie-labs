@@ -9,38 +9,34 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
-import MovieReviews from "../movieReviews"
-
-
+import MovieReviews from "../movieReviews";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import { Link } from "react-router";
 
 const root = {
-    display: "flex",
-    justifyContent: "center",
-    flexWrap: "wrap",
-    listStyle: "none",
-    padding: 1.5,
-    margin: 0,
+  display: "flex",
+  justifyContent: "center",
+  flexWrap: "wrap",
+  listStyle: "none",
+  padding: 1.5,
+  margin: 0,
 };
 const chip = { margin: 0.5 };
 
-const MovieDetails = ({ movie }) => {  // Don't miss this!
-const [drawerOpen, setDrawerOpen] = useState(false);
-
-
+const MovieDetails = ({ movie }) => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  
   return (
     <>
       <Typography variant="h5" component="h3">
         Overview
       </Typography>
-
       <Typography variant="h6" component="p">
         {movie.overview}
       </Typography>
-
-      <Paper 
-        component="ul" 
-        sx={{...root}}
-      >
+      
+      <Paper component="ul" sx={{...root}}>
         <li>
           <Chip label="Genres" sx={{...chip}} color="primary" />
         </li>
@@ -50,6 +46,7 @@ const [drawerOpen, setDrawerOpen] = useState(false);
           </li>
         ))}
       </Paper>
+      
       <Paper component="ul" sx={{...root}}>
         <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
         <Chip
@@ -66,10 +63,8 @@ const [drawerOpen, setDrawerOpen] = useState(false);
         />
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>
-      <Paper 
-        component="ul" 
-        sx={{...root}}
-      >
+      
+      <Paper component="ul" sx={{...root}}>
         <li>
           <Chip label="Production countries" sx={{...chip}} color="primary" />
         </li>
@@ -79,25 +74,48 @@ const [drawerOpen, setDrawerOpen] = useState(false);
           </li>
         ))}
       </Paper>
-            <Fab
+
+      {/* ADD THE BUTTONS HERE */}
+      <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, marginTop: 3, marginBottom: 3 }}>
+        <Button 
+          component={Link} 
+          to={`/movie/${movie.id}/credits`} 
+          variant="contained" 
+          color="primary"
+          size="large"
+        >
+          View Cast & Crew
+        </Button>
+        <Button 
+          component={Link} 
+          to={`/movie/${movie.id}/recommendations`} 
+          variant="outlined" 
+          color="primary"
+          size="large"
+        >
+          View Recommendations
+        </Button>
+      </Box>
+
+      <Fab
         color="secondary"
         variant="extended"
-        onClick={() =>setDrawerOpen(true)}
+        onClick={() => setDrawerOpen(true)}
         sx={{
           position: 'fixed',
           bottom: '1em',
           right: '1em'
         }}
       >
-        
         <NavigationIcon />
         Reviews
       </Fab>
+      
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <MovieReviews movie={movie} />
       </Drawer>
-
-      </>
+    </>
   );
 };
+
 export default MovieDetails;
