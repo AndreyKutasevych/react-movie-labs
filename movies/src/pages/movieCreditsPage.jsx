@@ -44,6 +44,7 @@ const MovieCreditsPage = () => {
                 <img 
                   src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
                   alt={actor.name}
+                  onClick={() => window.location.href = `/actors/${actor.id}`}
                   style={{ width: '100%', borderRadius: '8px' }}
                 />
               ) : (

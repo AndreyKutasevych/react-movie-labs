@@ -75,7 +75,6 @@ const MovieDetails = ({ movie }) => {
         ))}
       </Paper>
 
-      {/* ADD THE BUTTONS HERE */}
       <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, marginTop: 3, marginBottom: 3 }}>
         <Button 
           component={Link} 

@@ -16,19 +16,18 @@ import PopularPage from './pages/popularPage';
 import TopRatedPage from './pages/topRatedPage';
 import MovieCreditsPage from "./pages/movieCreditsPage";
 import MovieRecommendationsPage from "./pages/movieRecommendationsPage";
-
+import ActorsPage from "./pages/actorList";  // ADD THIS
+import ActorPage from "./pages/actorDetailsPage";  // ADD THIS
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 360000,
-      refetchInterval: 360000, 
+      refetchInterval: 360000,
       refetchOnWindowFocus: false
     },
   },
 });
-
-
 
 const App = () => {
   return (
@@ -48,6 +47,8 @@ const App = () => {
             <Route path="/movie/:id/credits" element={<MovieCreditsPage />} />
             <Route path="/movie/:id/recommendations" element={<MovieRecommendationsPage />} />
             <Route path="/movies/:id" element={<MoviePage />} />
+            <Route path="/actors" element={<ActorsPage />} /> 
+            <Route path="/actors/:id" element={<ActorPage />} />  
             <Route path="/" element={<HomePage />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
@@ -57,8 +58,6 @@ const App = () => {
     </QueryClientProvider>
   );
 };
-
-
 
 const rootElement = createRoot( document.getElementById("root") )
 rootElement.render(<App />);
