@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from 'react-router';
+import ActorHeader from "../components/actorHeader";
 import ActorDetails from "../components/actorDetails";
 import { getActor } from '../api/tmdb-api';
 import { useQuery } from '@tanstack/react-query';
@@ -22,6 +23,7 @@ const ActorPage = (props) => {
 
   return (
     <>
+    <ActorHeader actor={actor} />
       {actor ? (
         <>
           <div style={{ padding: '20px' }}>

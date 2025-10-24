@@ -32,7 +32,6 @@ const ActorDetails = ({ actor }) => {
 
   return (
     <>
-      <ActorHeader actor={actor} />
       <Typography variant="h5" component="h3">
         Biography
       </Typography>
