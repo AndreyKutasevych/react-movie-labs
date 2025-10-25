@@ -37,7 +37,7 @@ const MovieRecommendationsPage = () => {
 
   return (
     <PageTemplate movie={movie}>
-      <div style={{ padding: "20px" }}>
+      <div style={{ padding: "20px" , color:"white"}}>
         <h2>Recommended Movies</h2>
         {recommendations.length === 0 ? (
           <p>No recommendations available for this movie.</p>

@@ -21,6 +21,7 @@ const root = {
   listStyle: "none",
   padding: 1.5,
   margin: 0,
+  backgroundColor:"#abd0ebff"
 };
 const chip = { margin: 0.5 };
 
@@ -29,10 +30,10 @@ const MovieDetails = ({ movie }) => {
   
   return (
     <>
-      <Typography variant="h5" component="h3">
+      <Typography variant="h5" component="h3" color="white" >
         Overview
       </Typography>
-      <Typography variant="h6" component="p">
+      <Typography variant="h6" component="p" color="white"  >
         {movie.overview}
       </Typography>
       

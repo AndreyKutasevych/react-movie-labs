@@ -5,13 +5,10 @@ import CakeIcon from "@mui/icons-material/Cake";
 import PlaceIcon from "@mui/icons-material/Place";
 import MovieIcon from "@mui/icons-material/Movie";
 import Typography from "@mui/material/Typography";
-import Header from "../headerMovieList";
 import { useQuery } from "@tanstack/react-query";
 import { getActorMovies } from "../../api/tmdb-api";
 import React, { useState } from "react";
 import Spinner from "../spinner";
-import Grid from "@mui/material/Grid";
-import ActorHeader from "../actorHeader"
 
 const root = {
   display: "flex",
@@ -20,6 +17,7 @@ const root = {
   listStyle: "none",
   padding: 1.5,
   margin: 0,
+  backgroundColor:"#abd0ebff"
 };
 
 const chip = { margin: 0.5 };
@@ -32,10 +30,10 @@ const ActorDetails = ({ actor }) => {
 
   return (
     <>
-      <Typography variant="h5" component="h3">
+      <Typography variant="h5" component="h3" color="white">
         Biography
-      </Typography>
-      <Typography variant="h6" component="p">
+      </Typography> 
+      <Typography variant="h6" component="p" color="white">
         {actor.biography || "No biography available."}
       </Typography>
 
@@ -83,7 +81,7 @@ const ActorDetails = ({ actor }) => {
         </Paper>
       )}
 
-      <Typography variant="h5" component="h3" sx={{ marginTop: 4, marginBottom: 2 }}>
+      <Typography variant="h5" component="h3" sx={{ marginTop: 4, marginBottom: 2, color:"white"}}>
         Movies
       </Typography>
 

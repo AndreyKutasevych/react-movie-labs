@@ -16,8 +16,8 @@ import PopularPage from './pages/popularPage';
 import TopRatedPage from './pages/topRatedPage';
 import MovieCreditsPage from "./pages/movieCreditsPage";
 import MovieRecommendationsPage from "./pages/movieRecommendationsPage";
-import ActorsPage from "./pages/actorList";  // ADD THIS
-import ActorPage from "./pages/actorDetailsPage";  // ADD THIS
+import ActorsPage from "./pages/actorList";  
+import ActorPage from "./pages/actorDetailsPage";  
 
 const queryClient = new QueryClient({
   defaultOptions: {

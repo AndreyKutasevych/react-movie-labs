@@ -20,10 +20,12 @@ const MovieHeader = (props) => {
             flexWrap: "wrap",
             padding: 1.5,
             margin: 0,
+            backgroundColor: "rgba(29, 45, 108, 1)", 
+            color: "#f5f6fa" 
         }}
       >
       <IconButton aria-label="go back" onClick={() => navigate(-1)} >
-        <ArrowBackIcon color="primary" fontSize="large" />
+        <ArrowBackIcon sx={{ color: "white" }} fontSize="large" />
       </IconButton>
 
       <Typography variant="h4" component="h3">
@@ -35,8 +37,8 @@ const MovieHeader = (props) => {
         <span sx={{ fontSize: "1.5rem" }}>{`   "${movie.tagline}"`} </span>
       </Typography>
 
-      <IconButton aria-label="go forward" onClick={() => navigate(+1) } >
-        <ArrowForwardIcon color="primary" fontSize="large" />
+      <IconButton  aria-label="go forward" onClick={() => navigate(+1) } >
+        <ArrowForwardIcon sx={{ color: "white" }}  fontSize="large" />
       </IconButton>
     </Paper>
   );

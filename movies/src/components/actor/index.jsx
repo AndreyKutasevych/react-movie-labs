@@ -13,17 +13,30 @@ import img from '../../images/film-poster-placeholder.png';
 
 export default function ActorCard({ actor, action }) {
   return (
-    <Card>
+    <Card 
+    sx={{ 
+        backgroundColor: "#204577ff", 
+        color: "#f5f6fa", 
+        transition: "transform 0.3s ease",
+        "&:hover": {
+          transform: "scale(1.02)",
+          boxShadow: "0 8px 20px rgba(21, 20, 20, 0.4)"
+        }
+      }}
+    >
       <CardHeader
         title={
           <Typography variant="h5" component="p">
             {actor.name}{" "}
           </Typography>
         }
-        subheader={actor.known_for_department || "Acting"}
+        sx={{ 
+          backgroundColor: "#204577ff", 
+          color: "#f5f6fa"
+        }}
       />
       <CardMedia
-        sx={{ height: 500 }}
+        sx={{ height: 500}}
         image={
           actor.profile_path
             ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
@@ -40,7 +53,7 @@ export default function ActorCard({ actor, action }) {
           </Grid>
           {actor.known_for && actor.known_for.length > 0 && (
             <Grid size={{ xs: 12 }} sx={{ marginTop: 1 }}>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" color="white">
                 Known for: {actor.known_for.slice(0, 2).map(item => item.title || item.name).join(", ")}
               </Typography>
             </Grid>
@@ -50,7 +63,17 @@ export default function ActorCard({ actor, action }) {
       <CardActions disableSpacing>
         {action && action(actor)}
         <Link to={`/actors/${actor.id}`}>
-          <Button variant="outlined" size="medium" color="primary">
+          <Button 
+          variant="contained" 
+            size="medium"
+            sx={{ 
+              backgroundColor: "#ff6348",
+              color: "#fff",
+              "&:hover": {
+                backgroundColor: "#ff4757"
+              }
+            }}
+          >
             More Info ...
           </Button>
         </Link>

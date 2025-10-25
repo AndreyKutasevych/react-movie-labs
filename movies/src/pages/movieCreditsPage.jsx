@@ -35,7 +35,7 @@ const MovieCreditsPage = () => {
 
   return (
     <PageTemplate movie={movie}>
-      <div style={{ padding: '20px' }}>
+      <div style={{ padding: '20px', color:"white" }}>
         <h2>Cast</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '20px', marginBottom: '40px' }}>
           {cast.slice(0, 12).map((actor) => (
@@ -53,7 +53,7 @@ const MovieCreditsPage = () => {
                 </div>
               )}
               <p style={{ fontWeight: 'bold', marginTop: '8px' }}>{actor.name}</p>
-              <p style={{ fontSize: '0.9em', color: '#666' }}>{actor.character}</p>
+              <p style={{ fontSize: '0.9em', color: '#666' , color:"white" }}>{actor.character}</p>
             </div>
           ))}
         </div>
