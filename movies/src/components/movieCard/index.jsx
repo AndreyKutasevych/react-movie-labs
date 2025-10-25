@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
+import PlaylistIcon from "@mui/icons-material/PlaylistAdd";
 import CardMedia from "@mui/material/CardMedia";
 import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
@@ -27,6 +28,10 @@ export default function MovieCard({ movie, action }) {
   const handleAddToFavorite = (e) => {
     e.preventDefault();
     addToFavorites(movie);
+  };
+  const handleAddToPlaylist = (e) => {
+    e.preventDefault();
+    playlistAdd(movie);
   };
 
   return (

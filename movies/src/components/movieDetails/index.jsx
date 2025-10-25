@@ -98,7 +98,7 @@ const MovieDetails = ({ movie }) => {
       </Box>
 
       <Fab
-        color="secondary"
+        color="primary"
         variant="extended"
         onClick={() => setDrawerOpen(true)}
         sx={{

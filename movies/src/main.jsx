@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Navigate, Routes} from "react-router";
 import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
+import PlaylistMoviesPage from "./pages/playListPage";
 import SiteHeader from './components/siteHeader';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
@@ -39,6 +40,7 @@ const App = () => {
             <Route path="/reviews/form" element={<AddMovieReviewPage />} />
             <Route path="/reviews/:id" element={<MovieReviewPage />} />
             <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
+            <Route path="/movies/playlist" element={<PlaylistMoviesPage />} />
             <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
             <Route path="/movies/trending/today" element={<TrendingNowPage />} />
             <Route path="/movies/now/playing" element={<PlayingNowPage />} />
