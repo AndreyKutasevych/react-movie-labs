@@ -4,6 +4,7 @@ import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites';
+import PlaylistIcon from "../components/cardIcons/playlistAdd";
 
 const TrendingNowPage = (props) => {
   const [page, setPage] = useState(1);
@@ -38,7 +39,12 @@ const TrendingNowPage = (props) => {
       title="Trending Now"
       movies={movies}
       action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />
+        return (
+        <>
+          <AddToFavoritesIcon movie={movie} />
+          <PlaylistIcon movie={movie} />
+        </>
+      )
       }}
       page={page}
       totalPages={totalPages}

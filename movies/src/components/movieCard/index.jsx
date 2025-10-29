@@ -14,15 +14,23 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
-import img from '../../images/film-poster-placeholder.png'
+import img from '../../images/film-poster-placeholder.png';
+import Box from "@mui/material/Box";
 
 export default function MovieCard({ movie, action }) {
   const { favorites, addToFavorites } = useContext(MoviesContext);
+  const { playlist, playlistAdd } = useContext(MoviesContext);
   
   if (favorites.find((id) => id === movie.id)) {
     movie.favorite = true;
   } else {
     movie.favorite = false
+  }
+
+  if (playlist.find((id) => id === movie.id)) {
+    movie.inPlaylist = true;
+  } else {
+    movie.inPlaylist = false
   }
 
   const handleAddToFavorite = (e) => {
@@ -52,11 +60,18 @@ export default function MovieCard({ movie, action }) {
           color: "#f5f6fa"
         }}
         avatar={
-          movie.favorite ? (
-            <Avatar sx={{ backgroundColor: '#ff6348' }}> 
-              <FavoriteIcon />
-            </Avatar>
-          ) : null
+          <Box sx={{ display: 'flex', gap: 1 }}>
+            {movie.favorite && (
+              <Avatar sx={{ backgroundColor: '#ff6348' }}>
+                <FavoriteIcon />
+              </Avatar>
+            )}
+            {movie.inPlaylist && (
+              <Avatar sx={{ backgroundColor: '#4ecdc4' }}>
+                <PlaylistIcon />
+              </Avatar>
+            )}
+          </Box>
         }
         title={
           <Typography variant="h5" component="p" sx={{ color: "#f5f6fa" }}>
