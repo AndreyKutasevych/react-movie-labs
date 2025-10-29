@@ -83,23 +83,6 @@ const ActorsPage = (props) => {
         <Header title="Popular Actors" />
       </Grid>
 
-      {isFiltering && (
-        <Grid size={12}>
-          <Typography 
-            sx={{ 
-              textAlign: 'center', 
-              color: '#4ecdc4', 
-              padding: 2,
-              backgroundColor: 'rgba(29, 45, 108, 0.5)',
-              borderRadius: 2,
-              margin: 2
-            }}
-          >
-            Filtering {filteredActors.length} of {actors.length} actors on page {page}
-          </Typography>
-        </Grid>
-      )}
-
       <Grid container sx={{ flex: "1 1 500px" }}>
         <Grid
           key="find"

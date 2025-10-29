@@ -10,9 +10,6 @@ import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { useNavigate } from "react-router";
 
-
-
-
 const ratings = [
   {
     value: 5,
@@ -42,6 +39,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "left",
+    color: "white",
   },
   form: {
     width: "100%",
@@ -51,6 +49,14 @@ const styles = {
   },
   textField: {
     width: "40ch",
+    "& .MuiInputLabel-root": { color: "white" },
+    "& .MuiOutlinedInput-root": {
+      color: "white",
+      "& fieldset": { borderColor: "white" },
+      "&:hover fieldset": { borderColor: "white" },
+      "&.Mui-focused fieldset": { borderColor: "white" },
+    },
+    "& .MuiFormHelperText-root": { color: "white" },
   },
   submit: {
     marginRight: 2,
@@ -64,20 +70,19 @@ const styles = {
 };
 
 const ReviewForm = ({ movie }) => {
-    const context = useContext(MoviesContext);
+  const context = useContext(MoviesContext);
 
   const [rating, setRating] = useState(3);
-    const [open, setOpen] = useState(false); 
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
-  
   const defaultValues = {
     author: "",
     review: "",
     agree: false,
     rating: "3",
   };
-  
+
   const {
     control,
     formState: { errors },
@@ -88,28 +93,25 @@ const ReviewForm = ({ movie }) => {
   const handleRatingChange = (event) => {
     setRating(event.target.value);
   };
-    const handleSnackClose = (event) => {
+
+  const handleSnackClose = (event) => {
     setOpen(false);
     navigate("/movies/favorites");
   };
 
-
-      const onSubmit = (review) => {
+  const onSubmit = (review) => {
     review.movieId = movie.id;
     review.rating = rating;
-    // console.log(review);
     context.addReview(movie, review);
-    setOpen(true); // NEW
+    setOpen(true);
   };
-
-
 
   return (
     <Box component="div" sx={styles.root}>
       <Typography component="h2" variant="h3">
         Write a review
       </Typography>
-            <Snackbar
+      <Snackbar
         sx={styles.snack}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         open={open}
@@ -134,7 +136,7 @@ const ReviewForm = ({ movie }) => {
           defaultValue=""
           render={({ field: { onChange, value } }) => (
             <TextField
-              sx={{ width: "40ch" }}
+              sx={styles.textField}
               variant="outlined"
               margin="normal"
               required
@@ -162,6 +164,10 @@ const ReviewForm = ({ movie }) => {
           defaultValue=""
           render={({ field: { onChange, value } }) => (
             <TextField
+              sx={{
+                ...styles.textField,
+                width: "100%",
+              }}
               variant="outlined"
               margin="normal"
               required
@@ -187,6 +193,7 @@ const ReviewForm = ({ movie }) => {
           name="rating"
           render={({ field: { onChange, value } }) => (
             <TextField
+              sx={styles.textField}
               id="select-rating"
               select
               variant="outlined"
